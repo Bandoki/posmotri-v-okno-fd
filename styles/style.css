@@ -90,6 +90,11 @@ html {
   cursor: pointer;
 }
 
+.search-form__label:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
 /*.search-form__label:focus {
   outline: none;
 }*/
@@ -116,7 +121,6 @@ html {
   height: 27px;
   appearance: none;
   color: #fff;
-  cursor: pointer;
 }
 
 .search-form__textfield:active {
@@ -151,10 +155,10 @@ html {
   position: relative;
 }
 
-.search-form__label-text:hover {
+/*.search-form__label-text:hover {
   text-decoration: underline;
   text-underline-position: under;
-}
+}*/
 
 .button {
   font-family: "Fira Sans Condensed", sans-serif;
@@ -236,12 +240,14 @@ html {
   padding: 0 3px 0 3px;
 }
 
+/*Ниже рабочее подчеркивание*/
+
 .content__list-item:hover {
   text-decoration: underline;
   text-decoration-skip-ink: none;
 }
 
-.content__list-item:active {
+/*.content__list-item:active {
   background-color: #545050;
 }
 
@@ -252,7 +258,7 @@ html {
 .content__list-item:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
-}
+}*/
 
 .content__card-link {
   display: block;
@@ -263,11 +269,12 @@ html {
 /*.content__card-link:hover {
   text-decoration: underline;
   text-underline-position: under;
-}*/
+}
+*/
 
-/*.content__card-link:active {
+.content__card-link:active {
   background-color: #545050;
-}*/
+}
 
 .content__card-link:focus {
   outline: none;
