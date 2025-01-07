@@ -22,7 +22,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*в ТЗ прописано, что надо сделать align-items: end */
   inline-size: 1140px;
   block-size: 100%;
   margin: auto;
@@ -40,23 +39,22 @@ html {
 }
 
 .result__video-container {
-  /*padding-bottom: 16px;*/
   position: relative;
-  height: 386px;
-  margin-bottom: 16px;
+  block-size: 386px;
+  margin-block-end: 16px;
 }
 
 .result__video {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
+  object-position: center;
   cursor: pointer;
 }
 
 .search-form {
   display: flex;
   align-items: center;
-  /*в ТЗ было написано сделать start, но отличается от макета*/
   justify-content: space-between;
   gap: 40px;
 }
@@ -73,7 +71,7 @@ html {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  padding-bottom: 5px;
+  padding-block-end: 5px;
 }
 
 .search-form__checkbox-list {
@@ -84,16 +82,22 @@ html {
 
 .search-form__label {
   display: flex;
-  width: fit-content;
+  align-items: center;
+  inline-size: fit-content;
   font-family: inherit;
   gap: 5px;
   cursor: pointer;
 }
 
-.search-form__label:hover {
+.search-form__label:hover > .search-form__label-text {
   text-decoration: underline;
   text-underline-position: under;
 }
+
+/*.search-form__label:hover {
+  text-decoration: underline;
+  text-underline-position: under;
+}*/
 
 /*.search-form__label:focus {
   outline: none;
@@ -112,13 +116,13 @@ html {
   background-color: inherit;
   font-family: inherit;
   font-size: inherit;
-  width: 100%;
+  inline-size: 100%;
   border: 1px solid #fff;
   /*opacity: 70%;*/
   border-right: none;
   border-left: none;
-  min-width: 225px;
-  height: 27px;
+  min-inline-size: 225px;
+  min-block-size: 27px;
   appearance: none;
   color: #fff;
 }
@@ -141,14 +145,14 @@ html {
   content: "";
   display: block;
   background: #fff;
-  height: 15px;
-  width: 15px;
+  block-size: 15px;
+  inline-size: 15px;
 }
 
 .search-form__pseudo-checkbox {
   border: 1px solid #fff;
-  height: 19px;
-  width: 19px;
+  block-size: 19px;
+  inline-size: 19px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,6 +173,7 @@ html {
   background-color: transparent;
   color: #fff;
   cursor: pointer;
+  block-size: 34px;
 }
 
 .button:hover {
@@ -191,24 +196,23 @@ html {
 
 .search-form__submit-button {
   align-self: end;
-  min-width: 194px;
-  height: 34px;
+  min-inline-size: 194px;
 }
 
 .more-button {
-  width: 100%;
-  height: 34px;
-  margin: 0 3px 2px 3px;
+  max-inline-size: 390px;
+  inline-size: 100%;
+  margin: 0 0 2px 3px;
 }
 
 .title {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-weight: bold;
   font-size: 75px;
   line-height: 94%;
   text-transform: uppercase;
-  padding-bottom: 26px;
-  padding-right: 140px;
+  padding-block-end: 26px;
+  padding-inline-end: 140px;
 }
 
 .content__accent {
@@ -216,23 +220,22 @@ html {
 }
 
 .content__details {
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .content__list-container {
-  height: 298px;
+  block-size: 298px;
   position: relative;
   overflow: auto;
-  overflow-x: hidden;
 }
 
 .content__list {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-bottom: 30px;
-  padding-top: 2px;
+  padding-block-end: 30px;
+  padding-block-start: 2px;
 }
 
 .content__list-item {
@@ -240,37 +243,17 @@ html {
   padding: 0 3px 0 3px;
 }
 
-/*Ниже рабочее подчеркивание*/
-
-.content__list-item:hover {
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
-}
-
-/*.content__list-item:active {
-  background-color: #545050;
-}
-
-.content__list-item:focus {
-  outline: none;
-}
-
-.content__list-item:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-}*/
-
 .content__card-link {
   display: block;
   text-decoration: none;
   color: #fff;
 }
 
-/*.content__card-link:hover {
+.content__card-link:hover {
   text-decoration: underline;
   text-underline-position: under;
+  /*text-decoration-thickness: 1.8px;*/
 }
-*/
 
 .content__card-link:active {
   background-color: #545050;
@@ -294,11 +277,6 @@ html {
   align-items: start;
 }
 
-/*.content__video-card:hover {
-  text-decoration: underline;
-  text-underline-position: under;
-}
-*/
 .content__video-card-description-container {
   flex-grow: 1;
   /*width: 100%;
@@ -306,15 +284,17 @@ html {
 }
 
 .content__video-card-title {
-  font-family: "Oswald";
+  font-family: "Oswald", sans-serif;
   font-weight: bold;
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
-  width: 196px;
+  max-inline-size: 196px;
+  inline-size: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-block-end: 6px;
 }
 
 .content__video-card-description {
@@ -326,12 +306,12 @@ html {
   -webkit-box-orient: vertical;
   line-clamp: 3;
   overflow: hidden;
-  padding-top: 6px;
+  padding-block-end: 6px;
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
+  inline-size: 194px;
+  block-size: 103px;
   object-fit: cover;
   object-position: center;
 }
